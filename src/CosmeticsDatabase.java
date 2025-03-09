@@ -62,14 +62,35 @@ public class CosmeticsDatabase {
         return ourCosmetics.size();
     }
 
+    //RETURN INGREDIENTS FROM CERTAIN BARCODE
+    public static String getIngredients(String barcode) {
+        return ourCosmetics.get(barcode).getIngredients();
+    }
+
+    //RETURN PRICE FROM CERTAIN BARCODE
+    public static double getPrice(String barcode) {
+        return ourCosmetics.get(barcode).getPrice();
+    }
+
+    //RETURN BRAND FROM CERTAIN BARCODE
+    public static String getBrand(String barcode) {
+        return ourCosmetics.get(barcode).getBrand();
+    }
+
+    //RETURN THE WHOLE COSMETIC CLASS FROM CERTAIN BARCODE
+    public static Cosmetics getCosmetics(String barcode) {
+        return ourCosmetics.get(barcode);
+    }
+
     //CHECK IF COSMETIC INFO SATISTY CONDITION, THEN RETURN BARCODE ARRAYLIST
     public static ArrayList<String> filterBy(Filter f) {
         ArrayList<String> list = new ArrayList<String>();
-        for(String id : ourCosmetics.keySet()) {
-            if (f.satisfies(id)) {
-                list.add(id);
+        for(String barcode : ourCosmetics.keySet()) {
+            if (f.satisfies(barcode)) {
+                list.add(barcode);
             }
         }
+        
         return list;
     }
 

@@ -1,4 +1,4 @@
-public class Cosmetics {
+public class Cosmetics implements Comparable<Cosmetics>{
     
     private String barcode; 
     private String imageURL; 
@@ -71,5 +71,13 @@ public class Cosmetics {
                 + ", category=" + category + ", brand=" + brand + ", price=" + price + ", ingredients=" + ingredients
                 + ", skinCondition=" + skinCondition + ", additionalProperties=" + additionalProperties
                 + ", ratingScore=" + ratingScore + "]";
+    }
+
+    //COMPARE RATING SCORE
+    public int compareTo(Cosmetics other) {
+        if (ratingScore < other.ratingScore) return -1;
+        if (ratingScore > other.ratingScore) return 1;
+        
+        return 0;
     }
 }  
